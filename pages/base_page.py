@@ -1,4 +1,6 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 
 
 class BasePage:
@@ -8,6 +10,13 @@ class BasePage:
 
     def __init__(self, driver: WebDriver):
         self.driver = driver
+
+    def __init__(self):
+        try:
+            button_cookie = self.find((By.ID, 'onetrust-accept-btn-handler'))
+            button_cookie.click()
+        except NoSuchElementException:
+            pass
 
     def open_page(self):
         if self.page_url:

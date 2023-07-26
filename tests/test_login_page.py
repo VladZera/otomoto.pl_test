@@ -32,6 +32,6 @@ def test_warning_account_not_exist(driver):
     login_page.enter_email('1234@gmail.com')
     login_page.enter_password('Aa12345678!')
     driver.implicitly_wait(3)
+    login_page.cookies()
     login_page.login_button_clicking()
     assert login_page.account_not_exist.is_displayed()
-
