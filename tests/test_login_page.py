@@ -1,6 +1,7 @@
 from pages.login_page import LoginPage
 
 
+
 def test_log_in_error_when_incorrect_email(driver):
     login_page = LoginPage(driver)
     login_page.open_page()

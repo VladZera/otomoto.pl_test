@@ -8,15 +8,9 @@ class BasePage:
     page_url = None
 
 
+
     def __init__(self, driver: WebDriver):
         self.driver = driver
-
-    def __init__(self):
-        try:
-            button_cookie = self.find((By.ID, 'onetrust-accept-btn-handler'))
-            button_cookie.click()
-        except NoSuchElementException:
-            pass
 
     def open_page(self):
         if self.page_url:
@@ -29,3 +23,10 @@ class BasePage:
 
     def find_all(self, locator):
         return self.driver.find_elements(*locator)
+
+    def cookies(self):
+        try:
+            button_cookie = self.find((By.ID, 'onetrust-accept-btn-handler'))
+            button_cookie.click()
+        except NoSuchElementException:
+            pass
