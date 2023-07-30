@@ -7,8 +7,6 @@ class BasePage:
     base_url = 'https://www.otomoto.pl/'
     page_url = None
 
-
-
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
@@ -30,3 +28,10 @@ class BasePage:
             button_cookie.click()
         except NoSuchElementException:
             pass
+
+    def click_option(self, option_name):
+        options = (By.CSS_SELECTOR, '[data-testid="dropdown-item"]')
+        for option in options:
+            if option_name in option.text:
+                option.click()
+                break
