@@ -2,7 +2,6 @@ from pages.auto_parts_page import PartsPage
 from pages.results import ResultsPage
 from pages.auto_parts_page import PartsSearchPage
 from pages.results import FelgiPage
-from time import sleep
 
 
 def test_all_auto_parts_without_any_filters(driver):
@@ -30,10 +29,31 @@ def test_parts_for_abarth(driver):
     auto_parts_page = PartsPage(driver)
     auto_parts_page.open_page()
     auto_parts_page.cookies()
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     auto_parts_page.abarth_parts()
+    auto_parts_page.clicking_result_button()
+    assert driver.current_url == 'https://www.otomoto.pl/czesci/samochodowe/abarth/'
 
 
+def test_manual_search_parts_for_abarth(driver):
+    auto_parts_page = PartsPage(driver)
+    auto_parts_page.open_page()
+    auto_parts_page.cookies()
+    driver.implicitly_wait(10)
+    auto_parts_page.finding_parts_manualy('Abarth')
+    auto_parts_page.clicking_result_button()
+    assert driver.current_url == 'https://www.otomoto.pl/czesci/samochodowe/q-Abarth/'
+
+
+
+def test_parts_for_audi(driver):
+    auto_parts_page = PartsPage(driver)
+    auto_parts_page.open_page()
+    auto_parts_page.cookies()
+    driver.implicitly_wait(10)
+    auto_parts_page.audi_parts()
+    auto_parts_page.clicking_result_button()
+    assert driver.current_url == 'https://www.otomoto.pl/czesci/samochodowe/audi/'
 
 def test_search_bar(driver):
     search_page = PartsSearchPage(driver)
@@ -49,4 +69,4 @@ def test_search_bar(driver):
 
 
 
-sleep(5)
+#sleep(5)

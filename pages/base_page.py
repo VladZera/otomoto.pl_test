@@ -30,8 +30,14 @@ class BasePage:
             pass
 
     def click_option(self, option_name):
-        options = (By.CSS_SELECTOR, '[data-testid="dropdown-item"]')
+        options = self.find_all((By.CSS_SELECTOR, '[data-testid="dropdown-item"]'))
         for option in options:
             if option_name in option.text:
                 option.click()
                 break
+
+    def scroll_to(self, pix=None):
+        if not pix:
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        else:
+            self.driver.execute_script(f"window.scrollTo(0, {pix});")

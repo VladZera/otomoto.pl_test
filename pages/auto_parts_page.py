@@ -1,11 +1,7 @@
-from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import NoSuchElementException
 from pages.base_page import BasePage
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import Select
 
 
 result_button = (By.XPATH, '//*[@data-testid="submit-btn"]')
@@ -18,6 +14,7 @@ options = (By.CSS_SELECTOR, '[data-testid="dropdown-item"]')
 trust_button = (By.ID, 'onetrust-accept-btn-handler')
 dropdown = (By.ID, 'onetrust-accept-btn-handler')
 model_choose = (By.XPATH, '(//*[@data-testid="dropdown-expand-button"])[2]')
+input_parts_info = (By.ID, 'q')
 
 
 class PartsPage(BasePage):
@@ -26,13 +23,18 @@ class PartsPage(BasePage):
     def clicking_result_button(self):
         self.find(result_button).click()
 
+    def finding_parts_manualy(self, phrase):
+        self.find(input_parts_info).send_keys(phrase)
+
     def abarth_parts(self):
         self.find(dropdown).click()
         self.find(model_choose).click()
         self.click_option('Abarth')
 
-
-
+    def audi_parts(self):
+        self.find(dropdown).click()
+        self.find(model_choose).click()
+        self.click_option('Audi')
 
 
 
