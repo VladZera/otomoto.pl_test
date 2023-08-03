@@ -46,7 +46,7 @@ def test_ajp_brand_from_the_list(driver):
     motorcycles_page.open_page()
     driver.implicitly_wait(10)
     motorcycles_page.cookies()
-    motorcycles_page.ajp_brand_choose()
+    motorcycles_page.brand_choose('AJP')
     motorcycles_page.submit_button_clicking()
     assert motorcycles_page.all_ajp_motos_are_presented()
 
@@ -56,9 +56,9 @@ def test_finding_moto_by_brand_and_price(driver):
     motorcycles_page.open_page()
     driver.implicitly_wait(10)
     motorcycles_page.cookies()
-    motorcycles_page.yamaha_brand_choose()
-    motorcycles_page.price_from_10000_choose()
-    motorcycles_page.price_for_15000_choose()
+    motorcycles_page.brand_choose('Yamaha')
+    motorcycles_page.price_from_choose('10 000')
+    motorcycles_page.price_for_choose('15 000')
     motorcycles_page.submit_button_clicking()
     assert motorcycles_page.yamaha_from_10000_up_to_1500_is_opened()
 

@@ -14,6 +14,11 @@ dropdown = (By.CSS_SELECTOR, '[data-testid="dropdown-item"]')
 model_choose = (By.XPATH, '(//*[@data-testid="dropdown-expand-button"])[2]')
 price_from = (By.XPATH, '(//*[@data-testid="dropdown-expand-button"])[4]')
 price_for = (By.XPATH, '(//*[@data-testid="dropdown-expand-button"])[5]')
+yamaha_r125_is_opened = 'https://www.otomoto.pl/motocykle-i-quady' \
+                        '/q-Yamaha-R125?search%5Badvanced_search_expanded%5D=true'
+ajp_moto = 'https://www.otomoto.pl/motocykle-i-quady/ajp'
+yamaha_with_price_filter = 'https://www.otomoto.pl/motocykle-i-quady/yamaha?search%5Bfilter_float_price%3Afrom%5D=' \
+                           '10000&search%5Bfilter_float_price%3Ato%5D=15000'
 
 
 class MotoSearchPage(BasePage):
@@ -47,34 +52,30 @@ class MotoSearchPage(BasePage):
         self.find(submit_search_bar_button).click()
 
     def all_yamaha_r_125_results_is_opened(self):
-        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/motocykle-i-quady/q-Yamaha-R125?search%5Badvanced_search_expanded%5D=true'))
+        WebDriverWait(self.driver, 10).until(EC.url_to_be(yamaha_r125_is_opened))
         return True
 
     def choosing_model_from_the_list(self):
         self.find(model_choose).click()
 
-    def ajp_brand_choose(self):
+    def brand_choose(self, brand):
         self.find(model_choose).click()
-        self.click_option('AJP')
+        self.click_option(brand)
 
     def all_ajp_motos_are_presented(self):
-        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/motocykle-i-quady/ajp'))
+        WebDriverWait(self.driver, 10).until(EC.url_to_be(ajp_moto))
         return True
 
-    def yamaha_brand_choose(self):
-        self.find(model_choose).click()
-        self.click_option('Yamaha')
-
-    def price_from_10000_choose(self):
+    def price_from_choose(self, price):
         self.find(price_from).click()
-        self.click_option('10 000')
+        self.click_option(price)
 
-    def price_for_15000_choose(self):
+    def price_for_choose(self, price):
         self.find(price_for).click()
-        self.click_option('15 000')
+        self.click_option(price)
 
     def yamaha_from_10000_up_to_1500_is_opened(self):
-        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/motocykle-i-quady/yamaha?search%5Bfilter_float_price%3Afrom%5D=10000&search%5Bfilter_float_price%3Ato%5D=15000'))
+        WebDriverWait(self.driver, 10).until(EC.url_to_be(yamaha_with_price_filter))
         return True
 
 
