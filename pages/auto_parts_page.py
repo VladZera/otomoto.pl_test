@@ -5,7 +5,7 @@ from pages.base_page import BasePage
 
 
 result_button = (By.XPATH, '//*[@data-testid="submit-btn"]')
-search_bar = (By.ID, 'parts-search-text')
+search_bar = (By.CLASS_NAME, 'ds-search-input')
 submit_search = (By.NAME, 'q')
 adv = (By.ID, 'megaboardDiv')
 advanced_filter_button = (By.XPATH, '//*[@data-testid="advanced-search-link"]')
@@ -36,14 +36,24 @@ class PartsPage(BasePage):
         self.find(model_choose).click()
         self.click_option('Audi')
 
+    def abarth_parts_page_opened(self):
+        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/abarth/'))
+        return True
 
+    def audi_parts_page_opened(self):
+        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/audi/'))
+        return True
+
+    def abarth_parts_page_opened_manualy(self):
+        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/q-Abarth/'))
+        return True
 
 
 class PartsSearchPage(BasePage):
     page_url = '/czesci/samochodowe/'
 
-    #def entering_searching_bar(self, phrase):
-        #self.find(search_bar).send_keys(phrase)
+    def entering_searching_bar(self, phrase):
+        self.find(search_bar).send_keys(phrase)
 
     def clicking_submit(self):
         self.find(submit_search).click()
@@ -51,6 +61,10 @@ class PartsSearchPage(BasePage):
     def entering_searching_bar(self, phrase):
         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(adv))
         self.find(search_bar).send_keys(phrase)
+
+    def abarth_parts_page_opened(self):
+        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/abarth/'))
+        print('Abarth parts page is opened')
 
     def clicking_advanced_filter_button(self):
         self.find(advanced_filter_button).click()

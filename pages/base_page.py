@@ -1,7 +1,8 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 class BasePage:
     base_url = 'https://www.otomoto.pl/'
@@ -41,3 +42,4 @@ class BasePage:
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         else:
             self.driver.execute_script(f"window.scrollTo(0, {pix});")
+

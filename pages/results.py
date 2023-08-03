@@ -36,6 +36,7 @@ class GoogleResultPage(BasePage):
 class AppleResultPage(BasePage):
     base_url = 'https://apps.apple.com/us/app/id444086109?ign-mpt=uo%3D4'
     page_url = '/'
+
     @property
     def apple_downloading_page_is_opened(self):
         return self.find(apple_downloading_page).is_displayed()
