@@ -53,3 +53,4 @@ def test_parts_for_audi(driver):
     auto_parts_page.clicking_result_button()
     assert auto_parts_page.audi_parts_page_opened
     # Этот тест падает. Не выбирает элемент из дропдауна, хотя раньше выбирал и было все ок. В чем дело - непонятно.
+

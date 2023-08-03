@@ -12,7 +12,7 @@ advanced_filter_button = (By.XPATH, '//*[@data-testid="advanced-search-link"]')
 auto_model_list = (By.CLASS_NAME, 'ooa-14l7e0q')
 options = (By.CSS_SELECTOR, '[data-testid="dropdown-item"]')
 trust_button = (By.ID, 'onetrust-accept-btn-handler')
-dropdown = (By.ID, 'onetrust-accept-btn-handler')
+dropdown = (By.CSS_SELECTOR, '[data-testid="dropdown-item"]')
 model_choose = (By.XPATH, '(//*[@data-testid="dropdown-expand-button"])[2]')
 input_parts_info = (By.ID, 'q')
 

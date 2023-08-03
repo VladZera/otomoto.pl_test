@@ -30,13 +30,86 @@ def test_recommendation_price_system(driver):
     assert search_auto_page.recommendation_price_button_submit_is_displayed
 
 
-def test_all_bmw_autos_choose(driver):
+def test_all_bmw_autos_chosen(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
-    search_auto_page.cookies()
     driver.implicitly_wait(10)
-    search_auto_page.bmw_brand_choose()
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('BMW')
     search_auto_page.clicking_result_button()
-    assert driver.current_url == 'https://www.otomoto.pl/osobowe/bmw'
+    assert search_auto_page.all_bmw_cars_are_presented()
+
+
+def test_all_volkswagen_autos_chosen(driver):
+    search_auto_page = AutoSearchPage(driver)
+    search_auto_page.open_page()
+    driver.implicitly_wait(10)
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('Volkswagen')
+    search_auto_page.clicking_result_button()
+    assert search_auto_page.all_volkswagen_cars_are_presented()
+
+
+def test_all_volkswagen_scirocco_autos_chosen(driver):
+    search_auto_page = AutoSearchPage(driver)
+    search_auto_page.open_page()
+    driver.implicitly_wait(10)
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('Volkswagen')
+    search_auto_page.model_choose('Scirocco')
+    search_auto_page.clicking_result_button()
+    assert search_auto_page.all_volkswagen_scirocco_cars_are_presented()
+
+
+def test_all_vw_sciroco_on_benzina(driver):
+    search_auto_page = AutoSearchPage(driver)
+    search_auto_page.open_page()
+    driver.implicitly_wait(10)
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('Volkswagen')
+    search_auto_page.model_choose('Scirocco')
+    search_auto_page.petrol_choose('Benzyna')
+    search_auto_page.clicking_result_button()
+    assert search_auto_page.all_volkswagen_scirocco_on_benzyna_cars_are_presented()
+
+
+def test_all_bmw_on_diesel(driver):
+    search_auto_page = AutoSearchPage(driver)
+    search_auto_page.open_page()
+    driver.implicitly_wait(10)
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('BMW')
+    search_auto_page.petrol_choose('Diesel')
+    search_auto_page.clicking_result_button()
+    assert search_auto_page.all_bmw_on_diesel_are_presented()
+
+
+def test_all_bmw_from_01_to_02_year(driver):
+    search_auto_page = AutoSearchPage(driver)
+    search_auto_page.open_page()
+    driver.implicitly_wait(10)
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('BMW')
+    search_auto_page.year_from_choose('2001')
+    search_auto_page.year_up_choose('2002')
+    search_auto_page.clicking_result_button()
+    assert search_auto_page.all_bmw_cars_from_01_to_02()
+
+
+def test_all_the_main_paramethres(driver):
+    search_auto_page = AutoSearchPage(driver)
+    search_auto_page.open_page()
+    driver.implicitly_wait(10)
+    search_auto_page.cookies()
+    search_auto_page.brand_choose('Volkswagen')
+    search_auto_page.model_choose('Scirocco')
+    search_auto_page.price_from('2 000')
+    search_auto_page.price_up('200 000')
+    search_auto_page.year_from_choose('2008')
+    search_auto_page.year_up_choose('2016')
+    search_auto_page.clicking_result_button()
+    assert search_auto_page.sciroco_page_with_advanced_filters_is_opened()
+
+
 
 

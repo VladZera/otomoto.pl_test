@@ -65,7 +65,7 @@ class SocialPage(BasePage):
     def opening_facebook(self):
         self.find(facebook_icon).click()
 
-    def cookies_facebook(self):
+    def cookies_facebook_2(self):
         try:
             button_cookie = self.find((By.XPATH, "//button[contains(string(), 'Allow essential and optional cookies')]"))
             button_cookie.click()
