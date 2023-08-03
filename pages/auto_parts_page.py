@@ -26,15 +26,10 @@ class PartsPage(BasePage):
     def finding_parts_manualy(self, phrase):
         self.find(input_parts_info).send_keys(phrase)
 
-    def abarth_parts(self):
-        self.find(dropdown).click()
-        self.find(model_choose).click()
-        self.click_option('Abarth')
+    def model_choosing_parts(self, brand):
+        self.find(auto_model_list).click()
+        self.click_option(brand)
 
-    def audi_parts(self):
-        self.find(dropdown).click()
-        self.find(model_choose).click()
-        self.click_option('Audi')
 
     def abarth_parts_page_opened(self):
         WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/abarth/'))
@@ -48,6 +43,9 @@ class PartsPage(BasePage):
         WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/q-Abarth/'))
         return True
 
+    def volkswagen_parts_are_displayed(self):
+        WebDriverWait(self.driver, 10).until(EC.url_to_be('https://www.otomoto.pl/czesci/samochodowe/volkswagen/'))
+        return True
 
 class PartsSearchPage(BasePage):
     page_url = '/czesci/samochodowe/'

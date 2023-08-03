@@ -28,10 +28,9 @@ def test_parts_for_abarth(driver):
     auto_parts_page.open_page()
     auto_parts_page.cookies()
     driver.implicitly_wait(10)
-    auto_parts_page.abarth_parts()
+    auto_parts_page.model_choosing_parts('Abarth')
     auto_parts_page.clicking_result_button()
     assert auto_parts_page.abarth_parts_page_opened()
-    # Этот тест падает. Не выбирает элемент из дропдауна, хотя раньше выбирал и было все ок. В чем дело - непонятно.
 
 
 def test_manual_search_parts_for_abarth(driver):
@@ -49,8 +48,16 @@ def test_parts_for_audi(driver):
     auto_parts_page.open_page()
     auto_parts_page.cookies()
     driver.implicitly_wait(10)
-    auto_parts_page.audi_parts()
+    auto_parts_page.model_choosing_parts('Audi')
     auto_parts_page.clicking_result_button()
     assert auto_parts_page.audi_parts_page_opened
-    # Этот тест падает. Не выбирает элемент из дропдауна, хотя раньше выбирал и было все ок. В чем дело - непонятно.
 
+
+def test_parts_for_audi(driver):
+    auto_parts_page = PartsPage(driver)
+    auto_parts_page.open_page()
+    auto_parts_page.cookies()
+    driver.implicitly_wait(10)
+    auto_parts_page.model_choosing_parts('Volkswagen')
+    auto_parts_page.clicking_result_button()
+    assert auto_parts_page.volkswagen_parts_are_displayed()
