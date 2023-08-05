@@ -1,8 +1,7 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+from pages.locators import base_page_locators as loc
+
 
 class BasePage:
     base_url = 'https://www.otomoto.pl/'
@@ -25,13 +24,13 @@ class BasePage:
 
     def cookies(self):
         try:
-            button_cookie = self.find((By.ID, 'onetrust-accept-btn-handler'))
+            button_cookie = self.find(loc.button_cookie)
             button_cookie.click()
         except NoSuchElementException:
             pass
 
     def click_option(self, option_name):
-        options = self.find_all((By.CSS_SELECTOR, '[data-testid="dropdown-item"]'))
+        options = self.find_all(loc.options)
         for option in options:
             if option_name in option.text:
                 option.click()
@@ -42,4 +41,3 @@ class BasePage:
             self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         else:
             self.driver.execute_script(f"window.scrollTo(0, {pix});")
-

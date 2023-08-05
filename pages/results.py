@@ -1,11 +1,5 @@
 from pages.base_page import BasePage
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-
-filters_title = (By.CLASS_NAME, 'ds-facets-filter-results-header')
-abarth_page_url = 'https://www.otomoto.pl/czesci/samochodowe/abarth/'
-google_downloading_page = (By.CLASS_NAME, 'f0UV3d')
-apple_downloading_page = (By.CLASS_NAME, 'we-localnav__title__product')
+from pages.locators import results_page_locators as loc
 
 
 class ResultsPage(BasePage):
@@ -13,15 +7,7 @@ class ResultsPage(BasePage):
 
     @property
     def auto_parts_filters_is_displayed(self):
-        return self.find(filters_title).is_displayed()
-
-
-class FelgiPage(BasePage):
-    page_url = '/czesci/samochodowe/q-felgi/'
-
-
-class AbarthPartsPage(BasePage):
-    page_url = '/czesci/samochodowe/abarth/'
+        return self.find(loc.filters_title).is_displayed()
 
 
 class GoogleResultPage(BasePage):
@@ -30,7 +16,7 @@ class GoogleResultPage(BasePage):
 
     @property
     def google_downloading_page_is_opened(self):
-        return self.find(google_downloading_page).is_displayed()
+        return self.find(loc.google_downloading_page).is_displayed()
 
 
 class AppleResultPage(BasePage):
@@ -39,8 +25,4 @@ class AppleResultPage(BasePage):
 
     @property
     def apple_downloading_page_is_opened(self):
-        return self.find(apple_downloading_page).is_displayed()
-
-
-
-
+        return self.find(loc.apple_downloading_page).is_displayed()

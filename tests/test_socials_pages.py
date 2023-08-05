@@ -32,7 +32,7 @@ def test_opening_facebook(driver):
     facebook_page.opening_facebook()
     facebook_page.cookies_facebook()
     assert facebook_page.facebook_otomoto_is_opened()
-    #  Я не понимаю почему тут не проход assert. Аналогия построена с Инстаграмом, там все работает, а тут нет(
+    #  Я не понимаю почему тут непроходит assert. Аналогия построена с Инстаграмом, там все работает, а тут нет(
 
 
 def test_opening_tik_tok(driver):
@@ -44,6 +44,3 @@ def test_opening_tik_tok(driver):
     tik_tok_page.opening_tik_tok()
     #  Тут надо согласиться с куками тик тока, но я не нашел способа согласится с ними
     #  assert tik_tok_page.tik_tok_otomoto_is_opened()
-
-
-

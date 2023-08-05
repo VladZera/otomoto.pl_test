@@ -61,4 +61,3 @@ def test_finding_moto_by_brand_and_price(driver):
     motorcycles_page.price_for_choose('15 000')
     motorcycles_page.submit_button_clicking()
     assert motorcycles_page.yamaha_from_10000_up_to_1500_is_opened()
-

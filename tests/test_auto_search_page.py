@@ -1,5 +1,4 @@
 from pages.auto_search_page import AutoSearchPage
-from time import sleep
 
 
 def test_submit_button(driver):
@@ -109,7 +108,3 @@ def test_all_the_main_paramethres(driver):
     search_auto_page.year_up_choose('2016')
     search_auto_page.clicking_result_button()
     assert search_auto_page.sciroco_page_with_advanced_filters_is_opened()
-
-
-
-
