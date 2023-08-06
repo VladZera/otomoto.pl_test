@@ -1,6 +1,8 @@
+import allure
 from pages.auto_search_page import AutoSearchPage
 
 
+@allure.feature('All cars without any filters by submit button')
 def test_submit_button(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -10,6 +12,7 @@ def test_submit_button(driver):
     assert search_auto_page.all_auto_for_sale_page_is_opened
 
 
+@allure.feature('Sell button')
 def test_sell_button_is_work(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -19,6 +22,7 @@ def test_sell_button_is_work(driver):
     assert search_auto_page.create_sale_car_button_is_displayed
 
 
+@allure.feature('Recommendation price page ')
 def test_recommendation_price_system(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -29,6 +33,7 @@ def test_recommendation_price_system(driver):
     assert search_auto_page.recommendation_price_button_submit_is_displayed
 
 
+@allure.feature('All BMW autos are chosen')
 def test_all_bmw_autos_chosen(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -39,6 +44,7 @@ def test_all_bmw_autos_chosen(driver):
     assert search_auto_page.all_bmw_cars_are_presented()
 
 
+@allure.feature('All Volkswagen autos are chosen')
 def test_all_volkswagen_autos_chosen(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -49,6 +55,7 @@ def test_all_volkswagen_autos_chosen(driver):
     assert search_auto_page.all_volkswagen_cars_are_presented()
 
 
+@allure.feature('All VW Scirocco are chosen')
 def test_all_volkswagen_scirocco_autos_chosen(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -60,6 +67,7 @@ def test_all_volkswagen_scirocco_autos_chosen(driver):
     assert search_auto_page.all_volkswagen_scirocco_cars_are_presented()
 
 
+@allure.feature('All VW Scirocco on benzin are chosen')
 def test_all_vw_sciroco_on_benzina(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -72,6 +80,7 @@ def test_all_vw_sciroco_on_benzina(driver):
     assert search_auto_page.all_volkswagen_scirocco_on_benzyna_cars_are_presented()
 
 
+@allure.feature('All BMW on diesel are chosen')
 def test_all_bmw_on_diesel(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -83,6 +92,7 @@ def test_all_bmw_on_diesel(driver):
     assert search_auto_page.all_bmw_on_diesel_are_presented()
 
 
+@allure.feature('All BMW 2001 - 2002 are chosen')
 def test_all_bmw_from_01_to_02_year(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()
@@ -95,6 +105,7 @@ def test_all_bmw_from_01_to_02_year(driver):
     assert search_auto_page.all_bmw_cars_from_01_to_02()
 
 
+@allure.feature('Used the most popular parameres')
 def test_all_the_main_paramethres(driver):
     search_auto_page = AutoSearchPage(driver)
     search_auto_page.open_page()

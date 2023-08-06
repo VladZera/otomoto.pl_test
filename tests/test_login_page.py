@@ -1,6 +1,8 @@
 from pages.login_page import LoginPage
+import allure
 
 
+@allure.feature('log in with invalid email ')
 def test_log_in_error_when_incorrect_email(driver):
     login_page = LoginPage(driver)
     login_page.open_page()
@@ -10,6 +12,7 @@ def test_log_in_error_when_incorrect_email(driver):
     assert login_page.email_message_error.is_displayed()
 
 
+@allure.feature('log in with invalid password ')
 def test_log_in_error_when_short_password(driver):
     login_page = LoginPage(driver)
     login_page.open_page()
@@ -19,6 +22,7 @@ def test_log_in_error_when_short_password(driver):
     assert login_page.password_message_error.is_displayed()
 
 
+@allure.feature('Log in button checking')
 def test_login_button_is_visible_when_email_and_passwd_correct(driver):
     login_page = LoginPage(driver)
     login_page.open_page()
@@ -29,6 +33,7 @@ def test_login_button_is_visible_when_email_and_passwd_correct(driver):
     assert login_page.login_button.is_displayed()
 
 
+@allure.feature('Account not exist test')
 def test_warning_account_not_exist(driver):
     login_page = LoginPage(driver)
     login_page.open_page()

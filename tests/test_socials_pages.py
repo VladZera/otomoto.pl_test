@@ -1,6 +1,8 @@
 from pages.socials_page import SocialPage
+import allure
 
 
+@allure.feature('Otomoto YouTube page')
 def test_opening_youtube(driver):
     you_tube_page = SocialPage(driver)
     you_tube_page.open_page()
@@ -12,6 +14,7 @@ def test_opening_youtube(driver):
     assert you_tube_page.yt_channel_is_opened
 
 
+@allure.feature('Otomoto Instagram page')
 def test_opening_instagram(driver):
     instagram_page = SocialPage(driver)
     instagram_page.open_page()
@@ -23,6 +26,7 @@ def test_opening_instagram(driver):
     assert instagram_page.instagram_otomoto_is_opened
 
 
+@allure.feature('Otomoto facebook page')
 def test_opening_facebook(driver):
     facebook_page = SocialPage(driver)
     facebook_page.open_page()
@@ -35,6 +39,7 @@ def test_opening_facebook(driver):
     #  Я не понимаю почему тут непроходит assert. Аналогия построена с Инстаграмом, там все работает, а тут нет(
 
 
+@allure.feature('Otomoto TikTok page')
 def test_opening_tik_tok(driver):
     tik_tok_page = SocialPage(driver)
     tik_tok_page.open_page()

@@ -1,6 +1,8 @@
 from pages.moto_search_page import MotoSearchPage
+import allure
 
 
+@allure.feature('All motorcycles page is opened')
 def test_all_motorcycles_page_is_opened(driver):
     motorcycles_page = MotoSearchPage(driver)
     motorcycles_page.open_page()
@@ -10,6 +12,7 @@ def test_all_motorcycles_page_is_opened(driver):
     assert motorcycles_page.all_motorcycles_page_is_opened()
 
 
+@allure.feature('All motorcycles page is opened by advanced filter button')
 def test_all_motorcycles_page_is_opened_by_advanced_filter_button(driver):
     motorcycles_page = MotoSearchPage(driver)
     motorcycles_page.open_page()
@@ -19,6 +22,7 @@ def test_all_motorcycles_page_is_opened_by_advanced_filter_button(driver):
     assert motorcycles_page.all_motorcycles_page_is_opened()
 
 
+@allure.feature('Add to favorite art')
 def test_add_to_favorite_cart(driver):
     motorcycles_page = MotoSearchPage(driver)
     motorcycles_page.open_page()
@@ -29,6 +33,7 @@ def test_add_to_favorite_cart(driver):
     assert motorcycles_page.add_to_favorite_button_is_working
 
 
+@allure.feature('Yamaha R125 search by search bar')
 def test_manual_search_for_yamaha_r_125(driver):
     motorcycles_page = MotoSearchPage(driver)
     motorcycles_page.open_page()
@@ -41,6 +46,7 @@ def test_manual_search_for_yamaha_r_125(driver):
     assert motorcycles_page.all_yamaha_r_125_results_is_opened()
 
 
+@allure.feature('All AJP motorcycles are chosen')
 def test_ajp_brand_from_the_list(driver):
     motorcycles_page = MotoSearchPage(driver)
     motorcycles_page.open_page()
@@ -51,6 +57,7 @@ def test_ajp_brand_from_the_list(driver):
     assert motorcycles_page.all_ajp_motos_are_presented()
 
 
+@allure.feature('Yamaha R125 chosen with price parametrize')
 def test_finding_moto_by_brand_and_price(driver):
     motorcycles_page = MotoSearchPage(driver)
     motorcycles_page.open_page()
