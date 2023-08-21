@@ -36,7 +36,6 @@ def test_opening_facebook(driver):
     facebook_page.opening_facebook()
     facebook_page.cookies_facebook()
     assert facebook_page.facebook_otomoto_is_opened()
-    #  Я не понимаю почему тут непроходит assert. Аналогия построена с Инстаграмом, там все работает, а тут нет(
 
 
 @allure.feature('Otomoto TikTok page')
@@ -47,5 +46,4 @@ def test_opening_tik_tok(driver):
     tik_tok_page.cookies()
     tik_tok_page.scroll_to(2800)
     tik_tok_page.opening_tik_tok()
-    #  Тут надо согласиться с куками тик тока, но я не нашел способа согласится с ними
-    #  assert tik_tok_page.tik_tok_otomoto_is_opened()
+    assert tik_tok_page.tik_tok_otomoto_is_opened()
